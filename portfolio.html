@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - DMS Recycling</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="portfolio-page">
+
+  <div class="top-logo-banner">
+    <img src="images/logo.jpg" alt="DMS Recycling Logo" />
+  </div>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="page-title">
+    <h1>Our Work in Action</h1>
+    <p>Explore some of our recent recycling jobs, bin placements, pickups, and cleanups.</p>
+  </section>
+
+  
+  <section class="portfolio-gallery">
+    <div class="gallery-item">
+      <img src="images/1.jpg" alt="Portfolio Image 1">
+<img src="images/2.jpg" alt="Portfolio Image 2">
+<img src="images/3.jpg" alt="Portfolio Image 3">
+<img src="images/4.jpg" alt="Portfolio Image 4">
+<img src="images/5.jpg" alt="Portfolio Image 5">
+<img src="images/6.jpg" alt="Portfolio Image 6">
+<img src="images/7.jpg" alt="Portfolio Image 7">
+<img src="images/8.jpg" alt="Portfolio Image 8">
+<img src="images/9.jpg" alt="Portfolio Image 9">
+<img src="images/10.jpg" alt="Portfolio Image 10">
+<img src="images/11.jpg" alt="Portfolio Image 11">
+<img src="images/12.jpg" alt="Portfolio Image 12">
+<img src="images/13.jpg" alt="Portfolio Image 13">
+<img src="images/14.jpg" alt="Portfolio Image 14">
+<img src="images/15.jpg" alt="Portfolio Image 15">
+<img src="images/16.jpg" alt="Portfolio Image 16">
+<img src="images/17.jpg" alt="Portfolio Image 17">
+<img src="images/18.jpg" alt="Portfolio Image 18">
+<img src="images/19.jpg" alt="Portfolio Image 19">
+<img src="images/20.jpg" alt="Portfolio Image 20">
+<img src="images/21.jpg" alt="Portfolio Image 21">
+<img src="images/22.jpg" alt="Portfolio Image 22">
+<img src="images/23.jpg" alt="Portfolio Image 23">
+<img src="images/24.jpg" alt="Portfolio Image 24">
+<img src="images/25.jpg" alt="Portfolio Image 25">
+<img src="images/26.jpg" alt="Portfolio Image 26">
+<img src="images/27.jpg" alt="Portfolio Image 27">
+<img src="images/28.jpg" alt="Portfolio Image 28">
+<img src="images/29.jpg" alt="Portfolio Image 29">
+<img src="images/30.jpg" alt="Portfolio Image 30">
+<img src="images/31.jpg" alt="Portfolio Image 31">
+<img src="images/32.jpg" alt="Portfolio Image 32">
+<img src="images/33.jpg" alt="Portfolio Image 33">
+<img src="images/34.jpg" alt="Portfolio Image 34">
+<img src="images/35.jpg" alt="Portfolio Image 35">
+<img src="images/36.jpg" alt="Portfolio Image 36">
+<img src="images/37.jpg" alt="Portfolio Image 37">
+<img src="images/38.jpg" alt="Portfolio Image 38">
+<img src="images/39.jpg" alt="Portfolio Image 39">
+<img src="images/40.jpg" alt="Portfolio Image 40">
+<img src="images/41.jpg" alt="Portfolio Image 41">
+<img src="images/42.jpg" alt="Portfolio Image 42">
+<img src="images/43.jpg" alt="Portfolio Image 43">
+<img src="images/44.jpg" alt="Portfolio Image 44">
+<img src="images/45.jpg" alt="Portfolio Image 45">
+<img src="images/46.jpg" alt="Portfolio Image 46">
+<img src="images/47.jpg" alt="Portfolio Image 47">
+<img src="images/48.jpg" alt="Portfolio Image 48">
+<img src="images/49.jpg" alt="Portfolio Image 49">
+</div>
+</section>
+
+  <footer>
+    <p>&copy; 2025 DMS Recycling</p>
+  </footer>
+
+
+  <div id="lightbox">
+    <span class="close">&times;</span>
+    <button class="prev-btn">&#10094;</button>
+    <img class="lightbox-img" src="" alt="Expanded image" />
+
+    <button class="next-btn">&#10095;</button>
+  
+  </div>
+  
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const closeBtn = document.querySelector('.close');
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+    const galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+  
+    let currentIndex = 0;
+  
+    function showImage(index) {
+      if (index >= 0 && index < galleryImages.length) {
+        const img = galleryImages[index];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        currentIndex = index;
+      }
+    }
+  
+    galleryImages.forEach((img, i) => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        showImage(i);
+      });
+    });
+  
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+  
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+  
+    nextBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      showImage((currentIndex + 1) % galleryImages.length);
+    });
+  
+    prevBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      showImage((currentIndex - 1 + galleryImages.length) % galleryImages.length);
+    });
+  
+    // Optional: add keyboard support
+    document.addEventListener('keydown', e => {
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'ArrowRight') nextBtn.click();
+        if (e.key === 'ArrowLeft') prevBtn.click();
+        if (e.key === 'Escape') closeBtn.click();
+      }
+    });
+  </script>
+  
+
+</body>
+</html>
